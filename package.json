@@ -1,0 +1,18 @@
+{
+  "name": "mahjong-scoring",
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xuanyan0x7c7/mahjong-scoring.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xuanyan0x7c7/mahjong-scoring/issues"
+  },
+  "homepage": "https://github.com/xuanyan0x7c7/mahjong-scoring#readme"
+}

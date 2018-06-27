@@ -1,0 +1,138 @@
+[
+  {
+    "name": "ONE_CHARACTER",
+    "character": "🀇"
+  },
+  {
+    "name": "TWO_CHARACTERS",
+    "character": "🀈"
+  },
+  {
+    "name": "THREE_CHARACTERS",
+    "character": "🀉"
+  },
+  {
+    "name": "FOUR_CHARACTERS",
+    "character": "🀊"
+  },
+  {
+    "name": "FIVE_CHARACTERS",
+    "character": "🀋"
+  },
+  {
+    "name": "SIX_CHARACTERS",
+    "character": "🀌"
+  },
+  {
+    "name": "SEVEN_CHARACTERS",
+    "character": "🀍"
+  },
+  {
+    "name": "EIGHT_CHARACTERS",
+    "character": "🀎"
+  },
+  {
+    "name": "NINE_CHARACTERS",
+    "character": "🀏"
+  },
+  {
+    "name": "ONE_DOT",
+    "character": "🀙"
+  },
+  {
+    "name": "TWO_DOTS",
+    "character": "🀚"
+  },
+  {
+    "name": "THREE_DOTS",
+    "character": "🀛"
+  },
+  {
+    "name": "FOUR_DOTS",
+    "character": "🀜"
+  },
+  {
+    "name": "FIVE_DOTS",
+    "character": "🀝"
+  },
+  {
+    "name": "SIX_DOTS",
+    "character": "🀞"
+  },
+  {
+    "name": "SEVEN_DOTS",
+    "character": "🀟"
+  },
+  {
+    "name": "EIGHT_DOTS",
+    "character": "🀠"
+  },
+  {
+    "name": "NINE_DOTS",
+    "character": "🀡"
+  },
+  {
+    "name": "ONE_BAMBOO",
+    "character": "🀐"
+  },
+  {
+    "name": "TWO_BAMBOO",
+    "character": "🀑"
+  },
+  {
+    "name": "THREE_BAMBOO",
+    "character": "🀒"
+  },
+  {
+    "name": "FOUR_BAMBOO",
+    "character": "🀓"
+  },
+  {
+    "name": "FIVE_BAMBOO",
+    "character": "🀔"
+  },
+  {
+    "name": "SIX_BAMBOO",
+    "character": "🀕"
+  },
+  {
+    "name": "SEVEN_BAMBOO",
+    "character": "🀖"
+  },
+  {
+    "name": "EIGHT_BAMBOO",
+    "character": "🀗"
+  },
+  {
+    "name": "NINE_BAMBOO",
+    "character": "🀘"
+  },
+  {
+    "name": "EAST_WIND",
+    "character": "🀀"
+  },
+  {
+    "name": "SOUTH_WIND",
+    "character": "🀁"
+  },
+  {
+    "name": "WEST_WIND",
+    "character": "🀂"
+  },
+  {
+    "name": "NORTH_WIND",
+    "character": "🀃"
+  },
+  {
+    "name": "RED_DRAGON",
+    "character": "🀄"
+  },
+  {
+    "name": "GREEN_DRAGON",
+    "character": "🀅"
+  },
+  {
+    "name": "WHITE_DRAGON",
+    "character": "🀆"
+  }
+]
