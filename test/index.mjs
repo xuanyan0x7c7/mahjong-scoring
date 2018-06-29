@@ -30,7 +30,7 @@ function test(
   waitTile,
   winds,
   { chows = [], pungs = [], exposedKongs = [], concealedKongs = [], flowers = 0 },
-  { isSelfDrawn = false, isLastTileShown = false, isKong = false, isLastTile = false }
+  { isSelfDrawn = false, isFourthTile = false, isKong = false, isLastTile = false }
 ) {
   let tiles = []
   for (let number of characters) {
@@ -59,7 +59,7 @@ function test(
     {prevalentWind, seatWind},
     {chows, pungs, exposedKongs, concealedKongs, flowers, waitTile}
   )
-  console.log(hand.getScore({isSelfDrawn, isLastTileShown, isKong, isLastTile}))
+  console.log(hand.getScore({isSelfDrawn, isFourthTile, isKong, isLastTile}))
 }
 
 test(
