@@ -56,8 +56,8 @@ function test(
 
   let hand = new MahjongHand(
     tiles,
-    {prevalentWind, seatWind},
-    {chows, pungs, exposedKongs, concealedKongs, flowers, waitTile}
+    {chows, pungs, exposedKongs, concealedKongs, flowers, waitTile},
+    {prevalentWind, seatWind}
   )
   console.log(hand.getScore({isSelfDrawn, isFourthTile, isKong, isLastTile}))
 }
