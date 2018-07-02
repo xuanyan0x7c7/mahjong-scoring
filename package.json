@@ -4,6 +4,7 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
+    "test": "mocha -r esm test/index.mjs"
   },
   "repository": {
     "type": "git",
@@ -14,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/xuanyan0x7c7/mahjong-scoring/issues"
   },
-  "homepage": "https://github.com/xuanyan0x7c7/mahjong-scoring#readme"
+  "homepage": "https://github.com/xuanyan0x7c7/mahjong-scoring#readme",
+  "devDependencies": {
+    "esm": "^3.0.55",
+    "mocha": "^5.2.0"
+  }
 }
