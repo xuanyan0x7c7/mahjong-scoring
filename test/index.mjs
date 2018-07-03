@@ -29,9 +29,11 @@ function parseTile(tile) {
 function getScore(
   { characters = '', dots = '', bamboo = '', honors = '' },
   waitTile,
-  winds,
-  { chows = [], pungs = [], exposedKongs = [], concealedKongs = [], flowers = 0 },
-  { isSelfDrawn = false, isFourthTile = false, isKong = false, isLastTile = false }
+  {
+    winds = ['东', '东'],
+    chows = [], pungs = [], exposedKongs = [], concealedKongs = [], flowers = 0,
+    isSelfDrawn = false, isFourthTile = false, isKong = false, isLastTile = false
+  } = {}
 ) {
   let tiles = []
   for (let number of characters) {
@@ -68,9 +70,7 @@ describe('Fan', function() {
       let result = getScore(
         {honors: '南南南西西西北北', dots: '22'},
         {honor: '北'},
-        ['东', '东'],
-        {pungs: [{honor: '东'}]},
-        {}
+        {pungs: [{honor: '东'}]}
       )
       assert.equal(result.fans.includes('大四喜'), true)
       assert.equal(result.score >= 94, true)
@@ -84,9 +84,7 @@ describe('Fan', function() {
       let result = getScore(
         {honors: '中中中发发发白白', dots: '55'},
         {honor: '白'},
-        ['东', '东'],
-        {chows: [{character: 2}]},
-        {}
+        {chows: [{character: 2}]}
       )
       assert.equal(result.fans.includes('大三元'), true)
       assert.equal(result.score >= 89, true)
@@ -95,9 +93,7 @@ describe('Fan', function() {
       let result = getScore(
         {honors: '发发', bamboo: '23666888'},
         {bamboo: 4},
-        ['东', '东'],
-        {chows: [{bamboo: 3}]},
-        {}
+        {chows: [{bamboo: 3}]}
       )
       assert.equal(result.fans.includes('绿一色'), true)
       assert.equal(result.score >= 95, true)
@@ -105,10 +101,7 @@ describe('Fan', function() {
     it('九莲宝灯', function() {
       let result = getScore(
         {bamboo: '1112345678999'},
-        {bamboo: 5},
-        ['东', '东'],
-        {},
-        {}
+        {bamboo: 5}
       )
       assert.equal(result.fans.includes('九莲宝灯'), true)
       assert.equal(result.score >= 88, true)
@@ -121,9 +114,10 @@ describe('Fan', function() {
       let result = getScore(
         {honors: '发'},
         {honor: '发'},
-        ['东', '东'],
-        {exposedKongs: [{bamboo: 2}, {bamboo: 3}, {dot: 5}, {character: 7}]},
-        {isSelfDrawn: true}
+        {
+          exposedKongs: [{bamboo: 2}, {bamboo: 3}, {dot: 5}, {character: 7}],
+          isSelfDrawn: true
+        }
       )
       assert.equal(result.fans.includes('四杠'), true)
       assert.equal(result.score >= 89, true)
@@ -133,10 +127,7 @@ describe('Fan', function() {
     it('连七对', function() {
       let result = getScore(
         {bamboo: '1122334456677'},
-        {bamboo: 5},
-        ['东', '东'],
-        {},
-        {}
+        {bamboo: 5}
       )
       assert.equal(result.fans.includes('连七对'), true)
       assert.equal(result.score >= 88, true)
@@ -149,10 +140,7 @@ describe('Fan', function() {
     it('十三幺', function() {
       let result = getScore(
         {bamboo: '19', dots: '19', characters: '19', honors: '东南西北中发白'},
-        {bamboo: 1},
-        ['东', '东'],
-        {},
-        {}
+        {bamboo: 1}
       )
       assert.equal(result.fans.includes('十三幺'), true)
       assert.equal(result.score >= 88, true)
