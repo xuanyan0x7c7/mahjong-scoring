@@ -58,7 +58,8 @@ export function getScore(
   let hand = new MahjongHand({
     tiles,
     chows, pungs, exposedKongs, concealedKongs, flowers, waitTile,
-    prevalentWind, seatWind
+    prevalentWind, seatWind,
+    isSelfDrawn, isFourthTile, isKong, isLastTile
   })
-  return hand.getScore({isSelfDrawn, isFourthTile, isKong, isLastTile})
+  return hand.getScore()
 }

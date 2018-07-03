@@ -9,7 +9,6 @@ export default {
       {pungs: [{honor: '东'}]}
     )
     assert.equal(result.fans.includes('大四喜'), true)
-    assert.equal(result.score >= 94, true)
     assert.equal(result.fans.includes('三风刻'), false)
     assert.equal(result.fans.includes('碰碰和'), false)
     assert.equal(result.fans.includes('圈风刻'), false)
@@ -23,7 +22,6 @@ export default {
       {chows: [{character: 2}]}
     )
     assert.equal(result.fans.includes('大三元'), true)
-    assert.equal(result.score >= 89, true)
   },
   绿一色() {
     let result = getScore(
@@ -32,19 +30,23 @@ export default {
       {chows: [{bamboo: 3}]}
     )
     assert.equal(result.fans.includes('绿一色'), true)
-    assert.equal(result.score >= 95, true)
+    assert.equal(result.fans.includes('混一色'), true)
   },
   九莲宝灯() {
-    let result = getScore(
+    let result1 = getScore(
       {bamboo: '1112345678999'},
       {bamboo: 5}
     )
-    assert.equal(result.fans.includes('九莲宝灯'), true)
-    assert.equal(result.score >= 88, true)
-    assert.equal(result.fans.includes('幺九刻'), false)
-    assert.equal(result.fans.includes('清一色'), false)
-    assert.equal(result.fans.includes('门前清'), false)
-    assert.equal(result.fans.includes('无字'), false)
+    assert.equal(result1.fans.includes('九莲宝灯'), true)
+    assert.equal(result1.fans.includes('幺九刻'), false)
+    assert.equal(result1.fans.includes('清一色'), false)
+    assert.equal(result1.fans.includes('门前清'), false)
+    assert.equal(result1.fans.includes('无字'), false)
+    let result2 = getScore(
+      { bamboo: '1112234567899' },
+      { bamboo: 9 }
+    )
+    assert.equal(result2.fans.includes('九莲宝灯'), false)
   },
   四杠() {
     let result = getScore(
@@ -56,7 +58,6 @@ export default {
       }
     )
     assert.equal(result.fans.includes('四杠'), true)
-    assert.equal(result.score >= 89, true)
     assert.equal(result.fans.includes('碰碰和'), false)
     assert.equal(result.fans.includes('单调将'), false)
   },
@@ -66,7 +67,6 @@ export default {
       {bamboo: 5}
     )
     assert.equal(result.fans.includes('连七对'), true)
-    assert.equal(result.score >= 88, true)
     assert.equal(result.fans.includes('七对'), false)
     assert.equal(result.fans.includes('清一色'), false)
     assert.equal(result.fans.includes('门前清'), false)
@@ -75,11 +75,11 @@ export default {
   },
   十三幺() {
     let result = getScore(
-      {bamboo: '19', dots: '19', characters: '19', honors: '东南西北中发白'},
-      {bamboo: 1}
+      {bamboo: '11', dots: '19', characters: '19', honors: '东南西北中发白'},
+      {bamboo: 9}
     )
     assert.equal(result.fans.includes('十三幺'), true)
-    assert.equal(result.score >= 88, true)
     assert.equal(result.fans.includes('混幺九'), false)
+    assert.equal(result.fans.includes('单调将'), false)
   }
 }
