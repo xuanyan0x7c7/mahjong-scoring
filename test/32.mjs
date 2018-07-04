@@ -9,13 +9,14 @@ export default {
       {chows: [{character: 2}, {character: 4}]}
     )
     assert.equal(result1.fans.includes('一色四步高'), true)
+    assert.equal(result1.fans.includes('一色三步高'), false)
     assert.equal(result1.fans.includes('连六'), false)
     let result2 = getScore(
       {characters: '5677789'},
       {character: 7},
       {chows: [{character: 2}, {character: 4}]}
     )
-    assert.equal(result2.fans.includes('一色四步高'), true)
+    assert.equal(result2.fans.includes('一色三步高'), false)
     assert.equal(result2.fans.includes('老少副'), false)
   },
   三杠() {

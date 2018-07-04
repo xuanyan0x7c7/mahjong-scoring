@@ -9,6 +9,7 @@ export default {
       {chows: [{character: 2}]}
     )
     assert.equal(result1.fans.includes('一色四同顺'), true)
+    assert.equal(result1.fans.includes('一色三同顺'), false)
     assert.equal(result1.fans.includes('四归一'), false)
     assert.equal(result1.fans.includes('一般高'), false)
     let result2 = getScore(
@@ -25,6 +26,7 @@ export default {
       {pungs: [{character: 4}]}
     )
     assert.equal(result.fans.includes('一色四节高'), true)
+    assert.equal(result.fans.includes('一色三节高'), false)
     assert.equal(result.fans.includes('碰碰和'), false)
   }
 }
