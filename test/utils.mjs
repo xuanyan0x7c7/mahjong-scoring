@@ -49,8 +49,8 @@ export function getScore(
   }
 
   waitTile = parseTile(waitTile)
-  let prevalentWind = honorMapping[winds[0]] - 27
-  let seatWind = honorMapping[winds[1]] - 27
+  let prevalentWind = honorMapping[winds[0]]
+  let seatWind = honorMapping[winds[1]]
   chows = chows.map(tile => new Chow(parseTile(tile)))
   pungs = pungs.map(tile => new ExposedPung(parseTile(tile)))
   exposedKongs = exposedKongs.map(tile => new ExposedKong(parseTile(tile)))
