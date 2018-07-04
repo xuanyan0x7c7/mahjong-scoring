@@ -61,7 +61,9 @@ export default {
         isLastTile: true
       }
     )
-    assert.deepEqual(result.fans, ['妙手回春'])
+    assert.equal(result.fans.includes('妙手回春'), true)
+    assert.equal(result.fans.includes('无番和'), false)
+    assert.equal(result.fans.includes('自摸'), false)
   },
   海底捞月() {
     let result = getScore(
@@ -73,7 +75,8 @@ export default {
         isLastTile: true
       }
     )
-    assert.deepEqual(result.fans, ['海底捞月'])
+    assert.equal(result.fans.includes('海底捞月'), true)
+    assert.equal(result.fans.includes('无番和'), false)
   },
   杠上开花() {
     let result = getScore(
@@ -99,7 +102,8 @@ export default {
         isKong: true
       }
     )
-    assert.deepEqual(result.fans, ['抢杠和'])
+    assert.equal(result.fans.includes('抢杠和'), true)
+    assert.equal(result.fans.includes('和绝张'), false)
   },
   双暗杠() {
     let result = getScore(
