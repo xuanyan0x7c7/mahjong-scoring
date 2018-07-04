@@ -4,21 +4,33 @@ import { getScore, countInList } from './utils'
 export default {
   全不靠() {
     let result = getScore(
+      {characters: '147', dots: '25', bamboo: '36', honors: '东南西北中发'},
+      {bamboo: 9}
+    )
+    assert.equal(result.fans.includes('全不靠'), true)
+    assert.equal(result.fans.includes('五门齐'), false)
+    assert.equal(result.fans.includes('门前清'), false)
+  },
+  组合龙() {
+    let result = getScore(
       {characters: '147', dots: '258', bamboo: '36', honors: '东南西北中'},
       {bamboo: 9}
     )
     assert.equal(result.fans.includes('全不靠'), true)
     assert.equal(result.fans.includes('组合龙'), true)
-    assert.equal(result.fans.includes('五门齐'), false)
-    assert.equal(result.fans.includes('门前清'), false)
-  },
-  组合龙() {
-    let result1 = getScore(
+    let result2 = getScore(
       {characters: '147', dots: '24568', bamboo: '36779'},
       {dot: 5}
     )
-    assert.equal(result1.fans.includes('组合龙'), true)
-    assert.equal(result1.fans.includes('坎张'), false)
+    assert.equal(result2.fans.includes('组合龙'), true)
+    assert.equal(result2.fans.includes('平和'), true)
+    assert.equal(result2.fans.includes('坎张'), false)
+    let result3 = getScore(
+      {characters: '147', dots: '28', bamboo: '369', honors: '东东东白白'},
+      {dot: 5}
+    )
+    assert.equal(result3.fans.includes('组合龙'), true)
+    assert.equal(result3.fans.includes('五门齐'), true)
   },
   大于五() {
     let result = getScore(
