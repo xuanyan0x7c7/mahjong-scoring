@@ -8,6 +8,7 @@ import testCase_12 from './12'
 import testCase_8 from './8'
 import testCase_6 from './6'
 import testCase_4 from './4'
+import testCase_2 from './2'
 
 let testCaseFan = [
   [88, testCase_88],
@@ -19,7 +20,8 @@ let testCaseFan = [
   [12, testCase_12],
   [8, testCase_8],
   [6, testCase_6],
-  [4, testCase_4]
+  [4, testCase_4],
+  [2, testCase_2]
 ]
 
 describe('Fan', function() {
