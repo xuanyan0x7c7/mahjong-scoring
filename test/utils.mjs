@@ -63,3 +63,7 @@ export function getScore(
   })
   return hand.getScore()
 }
+
+export function countInList(list, ...items) {
+  return list.filter(x => items.includes(x)).length
+}

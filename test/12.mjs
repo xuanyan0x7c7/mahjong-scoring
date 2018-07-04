@@ -1,5 +1,5 @@
 import assert from 'assert'
-import { getScore } from './utils'
+import { getScore, countInList } from './utils'
 
 export default {
   全不靠() {
@@ -51,6 +51,6 @@ export default {
       {pungs: [{honor: '东'}, {honor: '南'}]}
     )
     assert.equal(result.fans.includes('三风刻'), true)
-    assert.equal(result.fans.filter(fan => fan === '幺九刻').length, 1)
+    assert.equal(countInList(result.fans, '幺九刻'), 1)
   }
 }

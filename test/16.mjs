@@ -1,5 +1,5 @@
 import assert from 'assert'
-import { getScore } from './utils'
+import { getScore, countInList } from './utils'
 
 export default {
   清龙() {
@@ -9,10 +9,7 @@ export default {
       {chows: [{character: 2}, {character: 5}, {character: 8}]}
     )
     assert.equal(result.fans.includes('清龙'), true)
-    assert.equal(
-      result.fans.includes('一般高') + result.fans.includes('连六') + result.fans.includes('老少副'),
-      1
-    )
+    assert.equal(countInList(result.fans, '一般高', '连六', '老少副'), 1)
   },
   三色双龙会() {
     let result = getScore(
