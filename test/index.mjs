@@ -2,26 +2,22 @@ import testCase_88 from './88'
 import testCase_64 from './64'
 import testCase_48 from './48'
 import testCase_32 from './32'
+import testCase_24 from './24'
+
+let testCaseFan = [
+  [88, testCase_88],
+  [64, testCase_64],
+  [48, testCase_48],
+  [32, testCase_32],
+  [24, testCase_24]
+]
 
 describe('Fan', function() {
-  describe('88', function() {
-    for (let [name, handler] of Object.entries(testCase_88)) {
-      it(name, handler)
-    }
-  })
-  describe('64', function() {
-    for (let [name, handler] of Object.entries(testCase_64)) {
-      it(name, handler)
-    }
-  })
-  describe('48', function() {
-    for (let [name, handler] of Object.entries(testCase_48)) {
-      it(name, handler)
-    }
-  })
-  describe('32', function() {
-    for (let [name, handler] of Object.entries(testCase_32)) {
-      it(name, handler)
-    }
-  })
+  for (let [score, testCase] of testCaseFan) {
+    describe(String(score), function() {
+      for (let [name, handler] of Object.entries(testCase)) {
+        it(name, handler)
+      }
+    })
+  }
 })
