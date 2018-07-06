@@ -28,7 +28,7 @@ let testCaseFan = [
 
 describe('Fan', function() {
   for (let [score, testCase] of testCaseFan) {
-    describe(String(score), function() {
+    describe(score + '-point fans', function() {
       for (let [name, handler] of Object.entries(testCase)) {
         it(name, handler)
       }
