@@ -64,6 +64,10 @@ export function getScore(
   return hand.getScore()
 }
 
+export function hasFan(list, fan) {
+  return list.map(item => item.name).includes(fan)
+}
+
 export function countInList(list, ...items) {
-  return list.filter(x => items.includes(x)).length
+  return list.map(item => item.name).filter(x => items.includes(x)).length
 }

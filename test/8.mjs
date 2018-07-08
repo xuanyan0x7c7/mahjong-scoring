@@ -1,5 +1,5 @@
-import assert from 'assert'
-import { getScore, countInList } from './utils'
+import { strict as assert } from 'assert'
+import { getScore, hasFan, countInList } from './utils'
 
 export default {
   花龙() {
@@ -8,7 +8,7 @@ export default {
       {character: 4},
       {chows: [{character: 2}, {dot: 5}, {bamboo: 8}]}
     )
-    assert.equal(result.fans.includes('花龙'), true)
+    assert.equal(hasFan(result.fans, '花龙'), true)
     assert.equal(countInList(result.fans, '喜相逢', '老少副'), 1)
   },
   推不倒() {
@@ -19,8 +19,8 @@ export default {
         chows: [{dot: 2}, {bamboo: 5}]
       }
     )
-    assert.equal(result.fans.includes('推不倒'), true)
-    assert.equal(result.fans.includes('缺一门'), false)
+    assert.equal(hasFan(result.fans, '推不倒'), true)
+    assert.equal(hasFan(result.fans, '缺一门'), false)
   },
   三色三同顺() {
     let result = getScore(
@@ -28,7 +28,7 @@ export default {
       {character: 2},
       {chows: [{character: 3}, {bamboo: 3}]}
     )
-    assert.equal(result.fans.includes('三色三同顺'), true)
+    assert.equal(hasFan(result.fans, '三色三同顺'), true)
     assert.equal(countInList(result.fans, '一般高', '喜相逢'), 1)
   },
   三色三节高() {
@@ -37,7 +37,7 @@ export default {
       {dot: 6},
       {pungs: [{character: 7}, {bamboo: 8}]}
     )
-    assert.equal(result.fans.includes('三色三节高'), true)
+    assert.equal(hasFan(result.fans, '三色三节高'), true)
   },
   无番和() {
     let result = getScore(
@@ -48,7 +48,8 @@ export default {
         pungs: [{bamboo: 7}]
       }
     )
-    assert.deepEqual(result.fans, ['无番和'])
+    assert.equal(result.fans.length, 1)
+    assert.equal(result.fans[0].name, '无番和')
   },
   妙手回春() {
     let result = getScore(
@@ -61,9 +62,9 @@ export default {
         isLastTile: true
       }
     )
-    assert.equal(result.fans.includes('妙手回春'), true)
-    assert.equal(result.fans.includes('无番和'), false)
-    assert.equal(result.fans.includes('自摸'), false)
+    assert.equal(hasFan(result.fans, '妙手回春'), true)
+    assert.equal(hasFan(result.fans, '无番和'), false)
+    assert.equal(hasFan(result.fans, '自摸'), false)
   },
   海底捞月() {
     let result = getScore(
@@ -75,8 +76,8 @@ export default {
         isLastTile: true
       }
     )
-    assert.equal(result.fans.includes('海底捞月'), true)
-    assert.equal(result.fans.includes('无番和'), false)
+    assert.equal(hasFan(result.fans, '海底捞月'), true)
+    assert.equal(hasFan(result.fans, '无番和'), false)
   },
   杠上开花() {
     let result = getScore(
@@ -89,8 +90,8 @@ export default {
         isKong: true
       }
     )
-    assert.equal(result.fans.includes('杠上开花'), true)
-    assert.equal(result.fans.includes('自摸'), false)
+    assert.equal(hasFan(result.fans, '杠上开花'), true)
+    assert.equal(hasFan(result.fans, '自摸'), false)
   },
   抢杠和() {
     let result = getScore(
@@ -102,8 +103,8 @@ export default {
         isKong: true
       }
     )
-    assert.equal(result.fans.includes('抢杠和'), true)
-    assert.equal(result.fans.includes('和绝张'), false)
+    assert.equal(hasFan(result.fans, '抢杠和'), true)
+    assert.equal(hasFan(result.fans, '和绝张'), false)
   },
   双暗杠() {
     let result = getScore(
@@ -114,8 +115,8 @@ export default {
         concealedKongs: [{character: 7}, {bamboo: 8}]
       }
     )
-    assert.equal(result.fans.includes('双暗杠'), true)
-    assert.equal(result.fans.includes('双明杠'), false)
-    assert.equal(result.fans.includes('双暗刻'), false)
+    assert.equal(hasFan(result.fans, '双暗杠'), true)
+    assert.equal(hasFan(result.fans, '双明杠'), false)
+    assert.equal(hasFan(result.fans, '双暗刻'), false)
   }
 }

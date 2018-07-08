@@ -1,5 +1,5 @@
-import assert from 'assert'
-import { getScore, countInList } from './utils'
+import { strict as assert } from 'assert'
+import { getScore, hasFan, countInList } from './utils'
 
 export default {
   全不靠() {
@@ -7,30 +7,30 @@ export default {
       {characters: '147', dots: '25', bamboo: '36', honors: '东南西北中发'},
       {bamboo: 9}
     )
-    assert.equal(result.fans.includes('全不靠'), true)
-    assert.equal(result.fans.includes('五门齐'), false)
-    assert.equal(result.fans.includes('门前清'), false)
+    assert.equal(hasFan(result.fans, '全不靠'), true)
+    assert.equal(hasFan(result.fans, '五门齐'), false)
+    assert.equal(hasFan(result.fans, '门前清'), false)
   },
   组合龙() {
     let result = getScore(
       {characters: '147', dots: '258', bamboo: '36', honors: '东南西北中'},
       {bamboo: 9}
     )
-    assert.equal(result.fans.includes('全不靠'), true)
-    assert.equal(result.fans.includes('组合龙'), true)
+    assert.equal(hasFan(result.fans, '全不靠'), true)
+    assert.equal(hasFan(result.fans, '组合龙'), true)
     let result2 = getScore(
       {characters: '147', dots: '24568', bamboo: '36779'},
       {dot: 5}
     )
-    assert.equal(result2.fans.includes('组合龙'), true)
-    assert.equal(result2.fans.includes('平和'), true)
-    assert.equal(result2.fans.includes('坎张'), false)
+    assert.equal(hasFan(result2.fans, '组合龙'), true)
+    assert.equal(hasFan(result2.fans, '平和'), true)
+    assert.equal(hasFan(result2.fans, '坎张'), false)
     let result3 = getScore(
       {characters: '147', dots: '28', bamboo: '369', honors: '东东东白白'},
       {dot: 5}
     )
-    assert.equal(result3.fans.includes('组合龙'), true)
-    assert.equal(result3.fans.includes('五门齐'), true)
+    assert.equal(hasFan(result3.fans, '组合龙'), true)
+    assert.equal(hasFan(result3.fans, '五门齐'), true)
   },
   大于五() {
     let result = getScore(
@@ -41,8 +41,8 @@ export default {
         pungs: [{character: 7}]
       }
     )
-    assert.equal(result.fans.includes('大于五'), true)
-    assert.equal(result.fans.includes('无字'), false)
+    assert.equal(hasFan(result.fans, '大于五'), true)
+    assert.equal(hasFan(result.fans, '无字'), false)
   },
   小于五() {
     let result = getScore(
@@ -53,8 +53,8 @@ export default {
         pungs: [{character: 2}]
       }
     )
-    assert.equal(result.fans.includes('小于五'), true)
-    assert.equal(result.fans.includes('无字'), false)
+    assert.equal(hasFan(result.fans, '小于五'), true)
+    assert.equal(hasFan(result.fans, '无字'), false)
   },
   三风刻() {
     let result = getScore(
@@ -62,7 +62,7 @@ export default {
       {character: 1},
       {pungs: [{honor: '东'}, {honor: '南'}]}
     )
-    assert.equal(result.fans.includes('三风刻'), true)
+    assert.equal(hasFan(result.fans, '三风刻'), true)
     assert.equal(countInList(result.fans, '幺九刻'), 1)
   }
 }

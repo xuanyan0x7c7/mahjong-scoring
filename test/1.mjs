@@ -1,5 +1,5 @@
-import assert from 'assert'
-import { getScore, countInList } from './utils'
+import { strict as assert } from 'assert'
+import { getScore, hasFan, countInList } from './utils'
 
 export default {
   '一般高/喜相逢/连六/老少副'() {
@@ -43,25 +43,25 @@ export default {
       {chows: [{character: 2}]}
     )
     assert.equal(countInList(result7.fans, '喜相逢'), 1)
-    assert.equal(result7.fans.includes('一色三同顺'), true)
+    assert.equal(hasFan(result7.fans, '一色三同顺'), true)
     let result8 = getScore(
       {characters: '11223356789', dots: '11'},
       {character: 4}
     )
     assert.equal(countInList(result8.fans, '一般高', '连六', '老少副'), 1)
-    assert.equal(result8.fans.includes('清龙'), true)
+    assert.equal(hasFan(result8.fans, '清龙'), true)
     let result9 = getScore(
       {characters: '12789', dots: '11456', bamboo: '789'},
       {character: 3}
     )
     assert.equal(countInList(result9.fans, '喜相逢', '老少副'), 1)
-    assert.equal(result9.fans.includes('花龙'), true)
+    assert.equal(hasFan(result9.fans, '花龙'), true)
     let result10 = getScore(
       {characters: '11223', dots: '11123', bamboo: '123'},
       {character: 3}
     )
     assert.equal(countInList(result10.fans, '一般高', '喜相逢'), 1)
-    assert.equal(result10.fans.includes('三色三同顺'), true)
+    assert.equal(hasFan(result10.fans, '三色三同顺'), true)
     let result11 = getScore(
       {characters: '1234789', dots: '123', bamboo: '789'},
       {character: 4}
@@ -89,7 +89,7 @@ export default {
         exposedKongs: [{dot: 4}]
       }
     )
-    assert.equal(result.fans.includes('明杠'), true)
+    assert.equal(hasFan(result.fans, '明杠'), true)
   },
   缺一门() {
     let result = getScore(
@@ -97,7 +97,7 @@ export default {
       {character: 5},
       {chows: [{character: 3}, {dot: 7}]}
     )
-    assert.equal(result.fans.includes('缺一门'), true)
+    assert.equal(hasFan(result.fans, '缺一门'), true)
   },
   无字() {
     let result = getScore(
@@ -105,7 +105,7 @@ export default {
       {character: 5},
       {chows: [{character: 3}, {bamboo: 8}]}
     )
-    assert.equal(result.fans.includes('无字'), true)
+    assert.equal(hasFan(result.fans, '无字'), true)
   },
   '边张/坎张/单调将'() {
     let result1 = getScore(
@@ -113,19 +113,19 @@ export default {
       {character: 3},
       {chows: [{dot: 4}, {bamboo: 5}, {bamboo: 6}]}
     )
-    assert.equal(result1.fans.includes('边张'), true)
+    assert.equal(hasFan(result1.fans, '边张'), true)
     let result2 = getScore(
       {characters: '24', dots: '99'},
       {character: 3},
       {chows: [{dot: 4}, {bamboo: 5}, {bamboo: 6}]}
     )
-    assert.equal(result2.fans.includes('坎张'), true)
+    assert.equal(hasFan(result2.fans, '坎张'), true)
     let result3 = getScore(
       {characters: '123', dots: '9'},
       {dot: 9},
       {chows: [{dot: 4}, {bamboo: 5}, {bamboo: 6}]}
     )
-    assert.equal(result3.fans.includes('单调将'), true)
+    assert.equal(hasFan(result3.fans, '单调将'), true)
     let result4 = getScore(
       {characters: '1233'},
       {character: 3},
@@ -148,46 +148,46 @@ export default {
       {characters: '147', dots: '245568', bamboo: '3679'},
       {bamboo: 7}
     )
-    assert.equal(result7.fans.includes('单调将'), true)
+    assert.equal(hasFan(result7.fans, '单调将'), true)
     let result8 = getScore(
       {characters: '147', dots: '24568', bamboo: '36779'},
       {dot: 5}
     )
-    assert.equal(result8.fans.includes('坎张'), false)
+    assert.equal(hasFan(result8.fans, '坎张'), false)
     let result9 = getScore(
       {characters: '147', dots: '245568', bamboo: '3677'},
       {bamboo: 9}
     )
-    assert.equal(result9.fans.includes('单调将'), false)
+    assert.equal(hasFan(result9.fans, '单调将'), false)
     let result10 = getScore(
       {characters: '11', dots: '19', bamboo: '19', honors: '东南西北中发白'},
       {character: 9}
     )
-    assert.equal(result10.fans.includes('单调将'), false)
+    assert.equal(hasFan(result10.fans, '单调将'), false)
     let result11 = getScore(
       {characters: '1112'},
       {character: 3},
       {chows: [{dot: 4}, {bamboo: 5}, {bamboo: 6}]}
     )
-    assert.equal(result11.fans.includes('边张'), false)
+    assert.equal(hasFan(result11.fans, '边张'), false)
     let result12 = getScore(
       {characters: '1112'},
       {character: 2},
       {chows: [{dot: 4}, {bamboo: 5}, {bamboo: 6}]}
     )
-    assert.equal(result12.fans.includes('单调将'), false)
+    assert.equal(hasFan(result12.fans, '单调将'), false)
     let result13 = getScore(
       {characters: '5777'},
       {character: 6},
       {chows: [{dot: 4}, {bamboo: 5}, {bamboo: 6}]}
     )
-    assert.equal(result13.fans.includes('坎张'), false)
+    assert.equal(hasFan(result13.fans, '坎张'), false)
     let result14 = getScore(
       {characters: '1111222'},
       {character: 3},
       {chows: [{dot: 4}, {bamboo: 5}]}
     )
-    assert.equal(result14.fans.includes('边张'), false)
+    assert.equal(hasFan(result14.fans, '边张'), false)
   },
   自摸() {
     let result = getScore(
@@ -198,7 +198,7 @@ export default {
         isSelfDrawn: true
       }
     )
-    assert.equal(result.fans.includes('自摸'), true)
+    assert.equal(hasFan(result.fans, '自摸'), true)
   },
   花牌() {
     let result1 = getScore(
@@ -218,6 +218,6 @@ export default {
         flowers: 2
       }
     )
-    assert.equal(result2.fans.includes('花牌'), false)
+    assert.equal(hasFan(result2.fans, '花牌'), false)
   }
 }

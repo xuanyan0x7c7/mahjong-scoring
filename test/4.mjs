@@ -1,5 +1,5 @@
-import assert from 'assert'
-import { getScore } from './utils'
+import { strict as assert } from 'assert'
+import { getScore, hasFan } from './utils'
 
 export default {
   全带幺() {
@@ -8,7 +8,7 @@ export default {
       {dot: 9},
       {pungs: [{bamboo: 9}]}
     )
-    assert.equal(result.fans.includes('全带幺'), true)
+    assert.equal(hasFan(result.fans, '全带幺'), true)
   },
   不求人() {
     let result = getScore(
@@ -19,9 +19,9 @@ export default {
         isSelfDrawn: true
       }
     )
-    assert.equal(result.fans.includes('不求人'), true)
-    assert.equal(result.fans.includes('门前清'), false)
-    assert.equal(result.fans.includes('自摸'), false)
+    assert.equal(hasFan(result.fans, '不求人'), true)
+    assert.equal(hasFan(result.fans, '门前清'), false)
+    assert.equal(hasFan(result.fans, '自摸'), false)
   },
   双明杠() {
     let result = getScore(
@@ -32,8 +32,8 @@ export default {
         concealedKongs: [{bamboo: 8}]
       }
     )
-    assert.equal(result.fans.includes('双明杠'), true)
-    assert.equal(result.fans.includes('暗杠'), true)
+    assert.equal(hasFan(result.fans, '双明杠'), true)
+    assert.equal(hasFan(result.fans, '暗杠'), true)
   },
   和绝张() {
     let result = getScore(
@@ -45,6 +45,6 @@ export default {
         isFourthTile: true
       }
     )
-    assert.equal(result.fans.includes('和绝张'), true)
+    assert.equal(hasFan(result.fans, '和绝张'), true)
   }
 }
