@@ -119,11 +119,11 @@ export default {
       {character: 4},
       {
         pungs: [{character: 6}],
-        meldedKongs: [{bamboo: 6}],
+        exposedKongs: [{bamboo: 6}],
         concealedKongs: [{dot: 4}]
       }
     )
-    assert.equal(hasFan(result2.fans, '暗杠'), true)
+    assert.equal(hasFan(result2.fans, '暗杠'), false)
   },
   断幺() {
     let result = getScore(

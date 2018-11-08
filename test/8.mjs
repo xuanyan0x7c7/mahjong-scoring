@@ -105,18 +105,5 @@ export default {
     )
     assert.equal(hasFan(result.fans, '抢杠和'), true)
     assert.equal(hasFan(result.fans, '和绝张'), false)
-  },
-  双暗杠() {
-    let result = getScore(
-      {characters: '22', dots: '66'},
-      {dot: 6},
-      {
-        exposedKongs: [{dot: 9}],
-        concealedKongs: [{character: 7}, {bamboo: 8}]
-      }
-    )
-    assert.equal(hasFan(result.fans, '双暗杠'), true)
-    assert.equal(hasFan(result.fans, '双明杠'), false)
-    assert.equal(hasFan(result.fans, '双暗刻'), false)
   }
 }

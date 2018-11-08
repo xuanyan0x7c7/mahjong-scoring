@@ -27,13 +27,9 @@ export default {
     let result = getScore(
       {characters: '22777', dots: '66'},
       {dot: 6},
-      {
-        exposedKongs: [{dot: 9}],
-        concealedKongs: [{bamboo: 8}]
-      }
+      {exposedKongs: [{dot: 9}, {bamboo: 8}]}
     )
     assert.equal(hasFan(result.fans, '双明杠'), true)
-    assert.equal(hasFan(result.fans, '暗杠'), true)
   },
   和绝张() {
     let result = getScore(

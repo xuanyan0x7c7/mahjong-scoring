@@ -63,6 +63,25 @@ export default {
     assert.equal(hasFan(result.fans, '全求人'), true)
     assert.equal(hasFan(result.fans, '单钓将'), false)
   },
+  双暗杠() {
+    let result1 = getScore(
+      {characters: '22', dots: '66'},
+      {dot: 6},
+      {concealedKongs: [{character: 7}, {bamboo: 8}]}
+    )
+    assert.equal(hasFan(result1.fans, '双暗杠'), true)
+    assert.equal(hasFan(result1.fans, '双暗刻'), false)
+    let result2 = getScore(
+      {characters: '22', dots: '66'},
+      {dot: 6},
+      {
+        exposedKongs: [{dot: 9}],
+        concealedKongs: [{character: 7}, {bamboo: 8}]
+      }
+    )
+    assert.equal(hasFan(result2.fans, '双暗杠'), false)
+    assert.equal(hasFan(result2.fans, '双暗刻'), true)
+  },
   双箭刻() {
     let result = getScore(
       {characters: '22345', dots: '66'},
