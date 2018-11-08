@@ -1,5 +1,5 @@
 import { strict as assert } from 'assert'
-import { getScore, hasFan } from './utils'
+import { getScore, hasFan, countInList } from './utils'
 
 export default {
   大四喜() {
@@ -38,17 +38,18 @@ export default {
       {bamboo: 5}
     )
     assert.equal(hasFan(result1.fans, '九莲宝灯'), true)
-    assert.equal(hasFan(result1.fans, '幺九刻'), false)
     assert.equal(hasFan(result1.fans, '清一色'), false)
     assert.equal(hasFan(result1.fans, '门前清'), false)
+    assert.equal(countInList(result1.fans, '幺九刻'), 1)
     assert.equal(hasFan(result1.fans, '无字'), false)
     let result2 = getScore(
       {bamboo: '1112345678999'},
-      {bamboo: 5},
+      {bamboo: 6},
       {isSelfDrawn: true}
     )
     assert.equal(hasFan(result2.fans, '九莲宝灯'), true)
     assert.equal(hasFan(result2.fans, '不求人'), false)
+    assert.equal(hasFan(result2.fans, '幺九刻'), false)
     assert.equal(hasFan(result2.fans, '自摸'), true)
     let result3 = getScore(
       {bamboo: '1112234567899'},
