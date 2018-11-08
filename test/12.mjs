@@ -3,21 +3,29 @@ import { getScore, hasFan, countInList } from './utils'
 
 export default {
   全不靠() {
-    let result = getScore(
+    let result1 = getScore(
       {characters: '147', dots: '25', bamboo: '36', honors: '东南西北中发'},
       {bamboo: 9}
     )
-    assert.equal(hasFan(result.fans, '全不靠'), true)
-    assert.equal(hasFan(result.fans, '五门齐'), false)
-    assert.equal(hasFan(result.fans, '门前清'), false)
+    assert.equal(hasFan(result1.fans, '全不靠'), true)
+    assert.equal(hasFan(result1.fans, '五门齐'), false)
+    assert.equal(hasFan(result1.fans, '门前清'), false)
+    let result2 = getScore(
+      {characters: '147', dots: '25', bamboo: '36', honors: '东南西北中发'},
+      {bamboo: 9},
+      {isSelfDrawn: true}
+    )
+    assert.equal(hasFan(result2.fans, '全不靠'), true)
+    assert.equal(hasFan(result2.fans, '不求人'), false)
+    assert.equal(hasFan(result2.fans, '自摸'), true)
   },
   组合龙() {
-    let result = getScore(
+    let result1 = getScore(
       {characters: '147', dots: '258', bamboo: '36', honors: '东南西北中'},
       {bamboo: 9}
     )
-    assert.equal(hasFan(result.fans, '全不靠'), true)
-    assert.equal(hasFan(result.fans, '组合龙'), true)
+    assert.equal(hasFan(result1.fans, '全不靠'), true)
+    assert.equal(hasFan(result1.fans, '组合龙'), true)
     let result2 = getScore(
       {characters: '147', dots: '24568', bamboo: '36779'},
       {dot: 5}

@@ -12,14 +12,22 @@ export default {
     assert.equal(hasFan(result.fans, '单调将'), false)
   },
   七星不靠() {
-    let result = getScore(
+    let result1 = getScore(
       {characters: '14', dots: '25', bamboo: '36', honors: '东南西北中发白'},
       {bamboo: 9}
     )
-    assert.equal(hasFan(result.fans, '七星不靠'), true)
-    assert.equal(hasFan(result.fans, '全不靠'), false)
-    assert.equal(hasFan(result.fans, '五门齐'), false)
-    assert.equal(hasFan(result.fans, '门前清'), false)
+    assert.equal(hasFan(result1.fans, '七星不靠'), true)
+    assert.equal(hasFan(result1.fans, '全不靠'), false)
+    assert.equal(hasFan(result1.fans, '五门齐'), false)
+    assert.equal(hasFan(result1.fans, '门前清'), false)
+    let result2 = getScore(
+      {characters: '14', dots: '25', bamboo: '36', honors: '东南西北中发白'},
+      {bamboo: 9},
+      {isSelfDrawn: true}
+    )
+    assert.equal(hasFan(result2.fans, '七星不靠'), true)
+    assert.equal(hasFan(result2.fans, '不求人'), false)
+    assert.equal(hasFan(result2.fans, '自摸'), true)
   },
   全双刻() {
     let result1 = getScore(

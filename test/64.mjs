@@ -57,13 +57,15 @@ export default {
     )
     assert.equal(hasFan(result1.fans, '四暗刻'), true)
     assert.equal(hasFan(result1.fans, '碰碰和'), false)
+    assert.equal(hasFan(result1.fans, '门前清'), false)
     let result2 = getScore(
       {characters: '222', dots: '33355', bamboo: '44777'},
       {dot: 5},
       {isSelfDrawn: true}
     )
     assert.equal(hasFan(result2.fans, '四暗刻'), true)
-    assert.equal(hasFan(result2.fans, '门前清'), false)
+    assert.equal(hasFan(result2.fans, '不求人'), false)
+    assert.equal(hasFan(result2.fans, '自摸'), true)
   },
   一色双龙会() {
     let result1 = getScore(

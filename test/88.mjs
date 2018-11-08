@@ -43,10 +43,18 @@ export default {
     assert.equal(hasFan(result1.fans, '门前清'), false)
     assert.equal(hasFan(result1.fans, '无字'), false)
     let result2 = getScore(
-      { bamboo: '1112234567899' },
-      { bamboo: 9 }
+      {bamboo: '1112345678999'},
+      {bamboo: 5},
+      {isSelfDrawn: true}
     )
-    assert.equal(hasFan(result2.fans, '九莲宝灯'), false)
+    assert.equal(hasFan(result2.fans, '九莲宝灯'), true)
+    assert.equal(hasFan(result2.fans, '不求人'), false)
+    assert.equal(hasFan(result2.fans, '自摸'), true)
+    let result3 = getScore(
+      {bamboo: '1112234567899'},
+      {bamboo: 9}
+    )
+    assert.equal(hasFan(result3.fans, '九莲宝灯'), false)
   },
   四杠() {
     let result = getScore(
@@ -62,24 +70,42 @@ export default {
     assert.equal(hasFan(result.fans, '单调将'), false)
   },
   连七对() {
-    let result = getScore(
+    let result1 = getScore(
       {bamboo: '1122334456677'},
       {bamboo: 5}
     )
-    assert.equal(hasFan(result.fans, '连七对'), true)
-    assert.equal(hasFan(result.fans, '七对'), false)
-    assert.equal(hasFan(result.fans, '清一色'), false)
-    assert.equal(hasFan(result.fans, '门前清'), false)
-    assert.equal(hasFan(result.fans, '无字'), false)
-    assert.equal(hasFan(result.fans, '单调将'), false)
+    assert.equal(hasFan(result1.fans, '连七对'), true)
+    assert.equal(hasFan(result1.fans, '七对'), false)
+    assert.equal(hasFan(result1.fans, '清一色'), false)
+    assert.equal(hasFan(result1.fans, '门前清'), false)
+    assert.equal(hasFan(result1.fans, '无字'), false)
+    assert.equal(hasFan(result1.fans, '单调将'), false)
+    let result2 = getScore(
+      {bamboo: '2233445667788'},
+      {bamboo: 5},
+      {isSelfDrawn: true}
+    )
+    assert.equal(hasFan(result2.fans, '连七对'), true)
+    assert.equal(hasFan(result2.fans, '不求人'), false)
+    assert.equal(hasFan(result2.fans, '断幺'), true)
+    assert.equal(hasFan(result2.fans, '自摸'), true)
   },
   十三幺() {
-    let result = getScore(
+    let result1 = getScore(
       {bamboo: '11', dots: '19', characters: '19', honors: '东南西北中发白'},
       {bamboo: 9}
     )
-    assert.equal(hasFan(result.fans, '十三幺'), true)
-    assert.equal(hasFan(result.fans, '混幺九'), false)
-    assert.equal(hasFan(result.fans, '单调将'), false)
+    assert.equal(hasFan(result1.fans, '十三幺'), true)
+    assert.equal(hasFan(result1.fans, '混幺九'), false)
+    assert.equal(hasFan(result1.fans, '门前清'), false)
+    assert.equal(hasFan(result1.fans, '单调将'), false)
+    let result2 = getScore(
+      {bamboo: '11', dots: '19', characters: '19', honors: '东南西北中发白'},
+      {bamboo: 9},
+      {isSelfDrawn: true}
+    )
+    assert.equal(hasFan(result2.fans, '十三幺'), true)
+    assert.equal(hasFan(result2.fans, '不求人'), false)
+    assert.equal(hasFan(result2.fans, '自摸'), true)
   }
 }
