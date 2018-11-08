@@ -30,7 +30,7 @@ export default {
       {chows: [{bamboo: 3}]}
     )
     assert.equal(hasFan(result.fans, '绿一色'), true)
-    assert.equal(hasFan(result.fans, '混一色'), true)
+    assert.equal(hasFan(result.fans, '混一色'), false)
   },
   九莲宝灯() {
     let result1 = getScore(
