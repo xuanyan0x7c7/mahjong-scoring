@@ -9,7 +9,7 @@ export default {
     )
     assert.equal(hasFan(result.fans, '七对'), true)
     assert.equal(hasFan(result.fans, '门前清'), false)
-    assert.equal(hasFan(result.fans, '单调将'), false)
+    assert.equal(hasFan(result.fans, '单钓将'), false)
   },
   七星不靠() {
     let result1 = getScore(

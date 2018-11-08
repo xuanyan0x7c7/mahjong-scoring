@@ -107,7 +107,7 @@ export default {
     )
     assert.equal(hasFan(result.fans, '无字'), true)
   },
-  '边张/坎张/单调将'() {
+  '边张/坎张/单钓将'() {
     let result1 = getScore(
       {characters: '12', dots: '99'},
       {character: 3},
@@ -125,19 +125,19 @@ export default {
       {dot: 9},
       {chows: [{dot: 4}, {bamboo: 5}, {bamboo: 6}]}
     )
-    assert.equal(hasFan(result3.fans, '单调将'), true)
+    assert.equal(hasFan(result3.fans, '单钓将'), true)
     let result4 = getScore(
       {characters: '1233'},
       {character: 3},
       {chows: [{dot: 4}, {bamboo: 5}, {bamboo: 6}]}
     )
-    assert.equal(countInList(result4.fans, '边张', '单调将'), 1)
+    assert.equal(countInList(result4.fans, '边张', '单钓将'), 1)
     let result5 = getScore(
       {characters: '2334'},
       {character: 3},
       {chows: [{dot: 4}, {bamboo: 5}, {bamboo: 6}]}
     )
-    assert.equal(countInList(result5.fans, '坎张', '单调将'), 1)
+    assert.equal(countInList(result5.fans, '坎张', '单钓将'), 1)
     let result6 = getScore(
       {characters: '12234', dots: '99'},
       {character: 3},
@@ -148,7 +148,7 @@ export default {
       {characters: '147', dots: '245568', bamboo: '3679'},
       {bamboo: 7}
     )
-    assert.equal(hasFan(result7.fans, '单调将'), true)
+    assert.equal(hasFan(result7.fans, '单钓将'), true)
     let result8 = getScore(
       {characters: '147', dots: '24568', bamboo: '36779'},
       {dot: 5}
@@ -158,12 +158,12 @@ export default {
       {characters: '147', dots: '245568', bamboo: '3677'},
       {bamboo: 9}
     )
-    assert.equal(hasFan(result9.fans, '单调将'), false)
+    assert.equal(hasFan(result9.fans, '单钓将'), false)
     let result10 = getScore(
       {characters: '11', dots: '19', bamboo: '19', honors: '东南西北中发白'},
       {character: 9}
     )
-    assert.equal(hasFan(result10.fans, '单调将'), false)
+    assert.equal(hasFan(result10.fans, '单钓将'), false)
     let result11 = getScore(
       {characters: '1112'},
       {character: 3},
@@ -175,7 +175,7 @@ export default {
       {character: 2},
       {chows: [{dot: 4}, {bamboo: 5}, {bamboo: 6}]}
     )
-    assert.equal(hasFan(result12.fans, '单调将'), false)
+    assert.equal(hasFan(result12.fans, '单钓将'), false)
     let result13 = getScore(
       {characters: '5777'},
       {character: 6},

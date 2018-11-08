@@ -67,7 +67,7 @@ export default {
     )
     assert.equal(hasFan(result.fans, '四杠'), true)
     assert.equal(hasFan(result.fans, '碰碰和'), false)
-    assert.equal(hasFan(result.fans, '单调将'), false)
+    assert.equal(hasFan(result.fans, '单钓将'), false)
   },
   连七对() {
     let result1 = getScore(
@@ -79,7 +79,7 @@ export default {
     assert.equal(hasFan(result1.fans, '清一色'), false)
     assert.equal(hasFan(result1.fans, '门前清'), false)
     assert.equal(hasFan(result1.fans, '无字'), false)
-    assert.equal(hasFan(result1.fans, '单调将'), false)
+    assert.equal(hasFan(result1.fans, '单钓将'), false)
     let result2 = getScore(
       {bamboo: '2233445667788'},
       {bamboo: 5},
@@ -98,7 +98,7 @@ export default {
     assert.equal(hasFan(result1.fans, '十三幺'), true)
     assert.equal(hasFan(result1.fans, '混幺九'), false)
     assert.equal(hasFan(result1.fans, '门前清'), false)
-    assert.equal(hasFan(result1.fans, '单调将'), false)
+    assert.equal(hasFan(result1.fans, '单钓将'), false)
     let result2 = getScore(
       {bamboo: '11', dots: '19', characters: '19', honors: '东南西北中发白'},
       {bamboo: 9},

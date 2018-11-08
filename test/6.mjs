@@ -61,7 +61,7 @@ export default {
       }
     )
     assert.equal(hasFan(result.fans, '全求人'), true)
-    assert.equal(hasFan(result.fans, '单调将'), false)
+    assert.equal(hasFan(result.fans, '单钓将'), false)
   },
   双箭刻() {
     let result = getScore(
