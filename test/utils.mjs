@@ -1,60 +1,34 @@
 import MahjongHand from '../lib/mahjong-hand'
 import { Chow, ExposedPung, ExposedKong, ConcealedKong } from '../lib/meld'
 
-const honorMapping = {
-  '东': 27,
-  '東': 27,
-  '南': 28,
-  '西': 29,
-  '北': 30,
-  '中': 31,
-  '发': 32,
-  '發': 32,
-  '白': 33
-}
+const tilesRegex = /^(?:(?<m>[1-9]+)m)?(?:(?<p>[1-9]+)p)?(?:(?<s>[1-9]+)s)?(?:(?<z>[1-7]+)z)?$/
 
-function parseTile(tile) {
-  if ('character' in tile) {
-    return tile.character - 1
-  } else if ('dot' in tile) {
-    return tile.dot + 8
-  } else if ('bamboo' in tile) {
-    return tile.bamboo + 17
-  } else if ('honor' in tile) {
-    return honorMapping[tile.honor]
-  }
+function parseTiles(string) {
+  let {m, p, s, z} = string.match(tilesRegex).groups
+  return [
+    ...(m || '').split('').map(s => Number.parseInt(s) - 1),
+    ...(p || '').split('').map(s => Number.parseInt(s) + 8),
+    ...(s || '').split('').map(s => Number.parseInt(s) + 17),
+    ...(z || '').split('').map(s => Number.parseInt(s) + 26)
+  ]
 }
 
 export function getScore(
-  { characters = '', dots = '', bamboo = '', honors = '' },
-  waitTile,
+  tiles, waitTile,
   {
-    winds = ['东', '东'],
+    winds = [1, 1],
     chows = [], pungs = [], exposedKongs = [], concealedKongs = [], flowers = 0,
     isSelfDrawn = false, isFourthTile = false, isKong = false, isLastTile = false
   } = {}
 ) {
-  let tiles = []
-  for (let number of characters) {
-    tiles.push(Number(number) - 1)
-  }
-  for (let number of dots) {
-    tiles.push(Number(number) + 8)
-  }
-  for (let number of bamboo) {
-    tiles.push(Number(number) + 17)
-  }
-  for (let c of honors) {
-    tiles.push(honorMapping[c])
-  }
-
-  waitTile = parseTile(waitTile)
-  let prevalentWind = honorMapping[winds[0]]
-  let seatWind = honorMapping[winds[1]]
-  chows = chows.map(tile => new Chow(parseTile(tile)))
-  pungs = pungs.map(tile => new ExposedPung(parseTile(tile)))
-  exposedKongs = exposedKongs.map(tile => new ExposedKong(parseTile(tile)))
-  concealedKongs = concealedKongs.map(tile => new ConcealedKong(parseTile(tile)))
+  tiles = parseTiles(tiles)
+  waitTile = parseTiles(waitTile)[0]
+  let prevalentWind = winds[0] + 26
+  let seatWind = winds[1] + 26
+  chows = chows.map(tile => new Chow(parseTiles(tile)[1]))
+  pungs = pungs.map(tile => new ExposedPung(parseTiles(tile)[0]))
+  exposedKongs = exposedKongs.map(tile => new ExposedKong(parseTiles(tile)[0]))
+  concealedKongs = concealedKongs.map(tile => new ConcealedKong(parseTiles(tile)[0]))
   let hand = new MahjongHand({
     tiles,
     chows, pungs, exposedKongs, concealedKongs, flowers, waitTile,
